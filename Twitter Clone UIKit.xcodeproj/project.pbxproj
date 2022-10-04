@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79CF58E728ECBB07002333AE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF58E628ECBB07002333AE /* ProfileViewController.swift */; };
 		79E6EBF828EA04FE0085CDF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E6EBF728EA04FE0085CDF8 /* AppDelegate.swift */; };
 		79E6EBFA28EA04FE0085CDF8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E6EBF928EA04FE0085CDF8 /* SceneDelegate.swift */; };
 		79E6EBFC28EA04FE0085CDF8 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E6EBFB28EA04FE0085CDF8 /* MainTabBarViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		79CF58E628ECBB07002333AE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		79E6EBF428EA04FE0085CDF8 /* Twitter Clone UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Twitter Clone UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79E6EBF728EA04FE0085CDF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79E6EBF928EA04FE0085CDF8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79CF58E528ECBAC1002333AE /* General */ = {
+			isa = PBXGroup;
+			children = (
+				79CF58E628ECBB07002333AE /* ProfileViewController.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 		79E6EBEB28EA04FE0085CDF8 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +88,7 @@
 		79E6EC0B28EA07DF0085CDF8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				79CF58E528ECBAC1002333AE /* General */,
 				79E6EC0C28EA07EE0085CDF8 /* Core */,
 			);
 			path = Controllers;
@@ -179,6 +190,7 @@
 				79E6EC1228EA08740085CDF8 /* NotificationsViewController.swift in Sources */,
 				79E6EBFA28EA04FE0085CDF8 /* SceneDelegate.swift in Sources */,
 				79E6EC0E28EA08290085CDF8 /* HomeViewController.swift in Sources */,
+				79CF58E728ECBB07002333AE /* ProfileViewController.swift in Sources */,
 				79E6EC1428EA08A00085CDF8 /* DirectMessagesViewController.swift in Sources */,
 				79E6EC1728EA125E0085CDF8 /* TweetTableViewCell.swift in Sources */,
 			);
