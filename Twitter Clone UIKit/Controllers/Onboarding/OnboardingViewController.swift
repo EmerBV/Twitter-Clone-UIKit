@@ -62,10 +62,16 @@ class OnboardingViewController: UIViewController {
         
         // Esto sirve para que al presionar el botón de crear cuenta nos redirija a dicha página
         createAccountButton.addTarget(self, action: #selector(didTapCreateAccount), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(didTapLogin), for: .touchUpInside)
         
         // Esto es para crear los constraints
         configureConstraints()
         
+    }
+    
+    @objc private func didTapLogin() {
+        let vc = LoginViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // Creamos la función de redirigir a la página de registro al presionar el botón de crear cuenta
