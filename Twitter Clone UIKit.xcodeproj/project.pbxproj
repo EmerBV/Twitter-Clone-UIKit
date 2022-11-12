@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7936A16C291FD46600DB916E /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7936A16B291FD46600DB916E /* TwitterUser.swift */; };
+		7936A16E291FD60E00DB916E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7936A16D291FD60E00DB916E /* DatabaseManager.swift */; };
+		7936A170291FDCB400DB916E /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7936A16F291FDCB400DB916E /* HomeViewViewModel.swift */; };
+		7936A172291FE3CA00DB916E /* ProfileDataFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7936A171291FE3CA00DB916E /* ProfileDataFormViewController.swift */; };
+		7936A174291FE71200DB916E /* ProfileDataFormViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7936A173291FE71200DB916E /* ProfileDataFormViewViewModel.swift */; };
 		794BE6CA291ED7560041C453 /* AuthenticationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794BE6C9291ED7560041C453 /* AuthenticationViewViewModel.swift */; };
 		794BE6CD291EE20F0041C453 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794BE6CC291EE20F0041C453 /* AuthManager.swift */; };
 		794BE6CF291F02670041C453 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794BE6CE291F02670041C453 /* LoginViewController.swift */; };
@@ -37,6 +42,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7936A16B291FD46600DB916E /* TwitterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterUser.swift; sourceTree = "<group>"; };
+		7936A16D291FD60E00DB916E /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		7936A16F291FDCB400DB916E /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
+		7936A171291FE3CA00DB916E /* ProfileDataFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataFormViewController.swift; sourceTree = "<group>"; };
+		7936A173291FE71200DB916E /* ProfileDataFormViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataFormViewViewModel.swift; sourceTree = "<group>"; };
 		794BE6C9291ED7560041C453 /* AuthenticationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewViewModel.swift; sourceTree = "<group>"; };
 		794BE6CC291EE20F0041C453 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		794BE6CE291F02670041C453 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -79,10 +89,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7936A16A291FD41200DB916E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7936A16B291FD46600DB916E /* TwitterUser.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		794BE6C8291ED71C0041C453 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				794BE6C9291ED7560041C453 /* AuthenticationViewViewModel.swift */,
+				7936A16F291FDCB400DB916E /* HomeViewViewModel.swift */,
+				7936A173291FE71200DB916E /* ProfileDataFormViewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -91,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				794BE6CC291EE20F0041C453 /* AuthManager.swift */,
+				7936A16D291FD60E00DB916E /* DatabaseManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -99,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				79CF58E628ECBB07002333AE /* ProfileViewController.swift */,
+				7936A171291FE3CA00DB916E /* ProfileDataFormViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -122,6 +144,7 @@
 		79E6EBF628EA04FE0085CDF8 /* Twitter Clone UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				7936A16A291FD41200DB916E /* Models */,
 				794BE6CB291EE1D50041C453 /* Networking */,
 				794BE6C8291ED71C0041C453 /* ViewModels */,
 				79E6EC1528EA12160085CDF8 /* Views */,
@@ -266,16 +289,21 @@
 				794BE6CD291EE20F0041C453 /* AuthManager.swift in Sources */,
 				79E6EBFC28EA04FE0085CDF8 /* MainTabBarViewController.swift in Sources */,
 				794BE6CF291F02670041C453 /* LoginViewController.swift in Sources */,
+				7936A16E291FD60E00DB916E /* DatabaseManager.swift in Sources */,
 				79E6EBF828EA04FE0085CDF8 /* AppDelegate.swift in Sources */,
 				79F16A8F2901D15100F521C7 /* RegisterViewController.swift in Sources */,
 				79E6EC1228EA08740085CDF8 /* NotificationsViewController.swift in Sources */,
 				79E6EBFA28EA04FE0085CDF8 /* SceneDelegate.swift in Sources */,
 				79E6EC0E28EA08290085CDF8 /* HomeViewController.swift in Sources */,
 				794BE6CA291ED7560041C453 /* AuthenticationViewViewModel.swift in Sources */,
+				7936A174291FE71200DB916E /* ProfileDataFormViewViewModel.swift in Sources */,
 				79CF58E728ECBB07002333AE /* ProfileViewController.swift in Sources */,
 				79E6EC1428EA08A00085CDF8 /* DirectMessagesViewController.swift in Sources */,
 				79CF58E928ECDAAA002333AE /* ProfileTableViewHeader.swift in Sources */,
+				7936A172291FE3CA00DB916E /* ProfileDataFormViewController.swift in Sources */,
 				79F16A8D2901C04000F521C7 /* OnboardingViewController.swift in Sources */,
+				7936A16C291FD46600DB916E /* TwitterUser.swift in Sources */,
+				7936A170291FDCB400DB916E /* HomeViewViewModel.swift in Sources */,
 				79E6EC1728EA125E0085CDF8 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
