@@ -139,6 +139,13 @@ class ProfileDataFormViewController: UIViewController {
             self?.submitButton.isEnabled = buttonState
         }
         .store(in: &subscriptions)
+        
+        viewModel.$isOnboardingFinished.sink { [weak self] success in
+            if success {
+                self?.dismiss(animated: true)
+            }
+        }
+        .store(in: &subscriptions)
     }
     
     @objc private func didTapToUpload() {
@@ -236,6 +243,7 @@ extension ProfileDataFormViewController: UITextViewDelegate, UITextFieldDelegate
     // Este es el método para reflejar (vincular) los cambios que haremos en el campo de la bio
     func textViewDidChange(_ textView: UITextView) {
         viewModel.bio = textView.text
+        viewModel.validateUserProfileForm()
     }
     // Esta función hace que al escribir en el input de display name, la vista se desplaza hácia arriba
     func textFieldDidBeginEditing(_ textField: UITextField) {
