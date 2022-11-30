@@ -7,8 +7,12 @@
 
 import UIKit
 import PhotosUI
+import Combine
 
 class ProfileDataFormViewController: UIViewController {
+    // Importo el modelo de esta vista para que puedan pasarse a este los datos que vaya poniendo
+    private let viewModel = ProfileDataFormViewViewModel()
+    private var subscriptions: Set<AnyCancellable> = []
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -66,7 +70,7 @@ class ProfileDataFormViewController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-    
+    // El campo del bio es una textView por lo tanto no tiene el método del addTarget, por lo tanto habrá que implementar ese método en los métodos del delegate
     private let bioTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -109,7 +113,32 @@ class ProfileDataFormViewController: UIViewController {
         bioTextView.delegate = self
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapToDismiss)))
         configureConstraints()
+        submitButton.addTarget(self, action: #selector(didTapSubmit), for: .touchUpInside)
         avatarPlaceholderImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapToUpload)))
+        bindViews()
+    }
+    
+    @objc private func didTapSubmit() {
+        viewModel.uploadAvatar()
+    }
+    // Esta función hace que cuando dé al botón del submit, el texto se refleje en su respectivo campo de la vista del modelo
+    @objc private func didUpdateDisplayName() {
+        viewModel.displayName = displayNameTextField.text
+        // LLamamos también a la función de validación que hicimos en la vista del modelo para que se ejecute con cada pulsación de tecla que hagamos en este campo
+        viewModel.validateUserProfileForm()
+    }
+    
+    @objc private func didUpdateUsername() {
+        viewModel.username = usernameTextField.text
+    }
+    // Esta función es para enlazar los datos que vayamos poniendo en esta vista a la viewModel
+    private func bindViews() {
+        displayNameTextField.addTarget(self, action: #selector(didUpdateDisplayName), for: .editingChanged)
+        usernameTextField.addTarget(self, action: #selector(didUpdateUsername), for: .editingChanged)
+        viewModel.$isFormValid.sink { [weak self] buttonState in
+            self?.submitButton.isEnabled = buttonState
+        }
+        .store(in: &subscriptions)
     }
     
     @objc private func didTapToUpload() {
@@ -195,6 +224,7 @@ extension ProfileDataFormViewController: UITextViewDelegate, UITextFieldDelegate
             textView.text = ""
         }
     }
+    
     // Esta función hace que cuando no escribamos nada en el campo de la bio la frase inicial aparezca de nuevo
     func textViewDidEndEditing(_ textView: UITextView) {
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
@@ -202,6 +232,10 @@ extension ProfileDataFormViewController: UITextViewDelegate, UITextFieldDelegate
             textView.text = "Tell the world about yourself"
             textView.textColor = .gray
         }
+    }
+    // Este es el método para reflejar (vincular) los cambios que haremos en el campo de la bio
+    func textViewDidChange(_ textView: UITextView) {
+        viewModel.bio = textView.text
     }
     // Esta función hace que al escribir en el input de display name, la vista se desplaza hácia arriba
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -221,7 +255,10 @@ extension ProfileDataFormViewController: PHPickerViewControllerDelegate {
             result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] object, error in
                 if let image = object as? UIImage {
                     DispatchQueue.main.async {
+                        // Esto es para vincular los campos de las imágen con la viewModel
                         self?.avatarPlaceholderImageView.image = image
+                        self?.viewModel.imageData = image
+                        self?.viewModel.validateUserProfileForm()
                     }
                 }
             }
